@@ -1,0 +1,31 @@
+<div class="contact-details">
+  <h2>Contact Details</h2>
+  @if (contact) {
+  <div class="contact-details__values">
+    <p><strong>ID:</strong> {{ contact.id }}</p>
+    <p><strong>First Name:</strong> {{ contact.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ contact.lastName }}</p>
+    <p><strong>Phone:</strong> {{ contact.phone }}</p>
+    <p><strong>Email:</strong> {{ contact.email }}</p>
+    <p><strong>Address:</strong> {{ contact.address }}</p>
+  </div>
+  <div  class="contact-details__actions">
+    <button
+      mat-raised-button
+      color="primary"
+      class="edit-btn"
+      (click)="contactHelperService.addEditNewContact(contact)"
+    >
+      Edit
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="delete-btn"
+      (click)="contactHelperService.confirmDeleteModal(contact, '/contact-list')"
+    >
+      Delete
+    </button>
+  </div>
+  }
+</div>

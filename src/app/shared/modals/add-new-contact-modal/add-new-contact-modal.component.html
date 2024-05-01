@@ -1,0 +1,78 @@
+<h2 mat-dialog-title>Add new contact</h2>
+<mat-dialog-content>
+  <form [formGroup]="contactForm">
+    <div style="display: flex; gap: 1rem; justify-content: space-between">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" />
+        <mat-error *ngIf="contactForm.get('firstName')?.errors?.['required']"
+          >First name is required</mat-error
+        >
+        <mat-error *ngIf="contactForm.get('firstName')?.errors?.['minLength']"
+          >First name must be at least 2 characters</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" />
+        <mat-error *ngIf="contactForm.get('lastName')?.errors?.['required']"
+          >Last name is required</mat-error
+        >
+        <mat-error *ngIf="contactForm.get('lastName')?.errors?.['minLength']"
+          >Last name must be at least 2 characters</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input type="tel" matInput formControlName="phone" />
+      <mat-error *ngIf="contactForm.get('phone')?.errors?.['required']"
+        >Phone number is required</mat-error
+      >
+      <mat-error *ngIf="contactForm.get('phone')?.errors?.['pattert']"
+        >Phone number must be 10 digits</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthDate" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="contactForm.get('birthDate')?.errors?.['required']"
+        >Birth date is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label><input matInput formControlName="email" />
+      <mat-error *ngIf="contactForm.get('email')?.errors?.['required']"
+        >Email is required</mat-error
+      >
+      <mat-error *ngIf="contactForm.get('email')?.errors?.['email']"
+        >Please enter a valid email</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address" />
+      <mat-error *ngIf="contactForm.get('address')?.errors?.['required']"
+        >Address is required</mat-error
+      >
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    (click)="onSubmit()"
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!contactForm.valid"
+  >
+    {{ submiButtonText() }}
+  </button>
+</mat-dialog-actions>

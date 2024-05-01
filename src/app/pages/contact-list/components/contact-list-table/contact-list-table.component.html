@@ -1,0 +1,54 @@
+<table mat-table [dataSource]="contactHelperService.contactsSource()">
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef>First Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef>Second Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef>Phone</th>
+    <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <div class="actions">
+        <button
+          matTooltip="Edit contact"
+          matTooltipPosition="above"
+          mat-icon-button
+          color="primary"
+          (click)="contactHelperService.addEditNewContact(element)"
+        >
+          <mat-icon>mode_edit</mat-icon>
+        </button>
+        <button
+          matTooltip="Delete contact"
+          matTooltipPosition="above"
+          mat-icon-button
+          color="primary"
+          (click)="contactHelperService.confirmDeleteModal(element)"
+        >
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+        <a
+          matTooltip="Open details"
+          matTooltipPosition="above"
+          mat-icon-button
+          color="primary"
+          [href]="'/contact-list/' + element.id"
+        >
+          <mat-icon>arrow_forward</mat-icon>
+        </a>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

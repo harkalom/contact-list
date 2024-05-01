@@ -1,0 +1,19 @@
+<div class="container">
+  <section class="container__section">
+    <div class="container__actions">
+      <button mat-flat-button color="primary" (click)="addNewContact()">
+        Add New Contact
+      </button>
+    </div>
+    <div
+      style="display: flex; justify-content: space-between; margin-top: 20px"
+    >
+      <h2>Contact list</h2>
+      <app-contact-filters></app-contact-filters>
+    </div>
+
+    <app-contact-list-table
+    (openEditModal)="openEditModal($event)"
+    ></app-contact-list-table>
+  </section>
+</div>

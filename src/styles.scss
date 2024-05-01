@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+    --mat-dialog-actions-alignment: end;
+    --mat-dialog-actions-padding: 0 24px 16px;
+    --mat-dialog-content-padding: 20px 24px;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.mat-mdc-text-field-wrapper {
+  background: #eaf1ff;
+}
