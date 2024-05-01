@@ -3,11 +3,12 @@ import { ContactHelperService } from '../../core/services/contact-helper.service
 import { Contact } from '../../shared/models/contact.interface';
 import { ActivatedRoute } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-contact-details',
   standalone: true,
-  imports: [MatButtonModule],
+    imports: [MatButtonModule, DatePipe],
   templateUrl: './contact-details.component.html',
   styleUrl: './contact-details.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -8,6 +8,7 @@
     <p><strong>Phone:</strong> {{ contact.phone }}</p>
     <p><strong>Email:</strong> {{ contact.email }}</p>
     <p><strong>Address:</strong> {{ contact.address }}</p>
+    <p><strong>Birthday:</strong> {{ contact.birthDate | date: 'MMMM d, y' }}</p>
   </div>
   <div  class="contact-details__actions">
     <button
